@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MBTI 챗봇</title>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'chat' %}">챗봇</a>
+            <a href="{% url 'profile' %}">프로필</a>
+            <a href="{% url 'logout' %}">로그아웃</a>
+        {% else %}
+            <a href="{% url 'login' %}">로그인</a>
+            <a href="{% url 'register' %}">회원가입</a>
+        {% endif %}
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

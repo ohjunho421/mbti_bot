@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ user.username }}님의 프로필</h2>
+<a href="{% url 'logout' %}">로그아웃</a>
+<h3>대화 기록</h3>
+<div class="chat-history">
+    {% for chat in history %}
+    <div class="chat-item">
+        <p>질문: {{ chat.question }}</p>
+        <p>답변: {{ chat.answer }}</p>
+        <small>{{ chat.created_at }}</small>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
